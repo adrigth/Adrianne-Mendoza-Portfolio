@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: beige;
+    }
+
+    .header {
+      background: #8B7765;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .nav {
+      text-align: center;
+      background: #A9947D;
+      padding: 10px;
+    }
+
+    .nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav a.active {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background: #D9C3A5;
+      flex-wrap: wrap;
+    }
+
+    .profile-name {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .section {
+      margin-bottom: 20px;
+      background: #D9C3A5;
+      padding: 20px;
+      text-align: left;
+      display: none;
+    }
+
+    .footer {
+      background: #8B7765;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-name {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>My Portfolio</h1>
+  </div>
+
+  <div class="nav">
+    <a onclick="showSection('about')" id="link-about">About Me</a>
+    <a onclick="showSection('profile')" id="link-profile">My Profile</a>
+    <a onclick="showSection('contact')" id="link-contact">Contact Me</a>
+  </div>
+
+  <div class="container">
+    <div class="profile-header">
+      <div class="profile-name">ADRIANNE L. MENDOZA - CCST STUDENT</div>
+      <img src="profile.jpg" alt="Profile Photo" class="photo">
+    </div>
+
+    <div id="profile" class="section">
+      <h2>My Profile</h2>
+      <p><strong>Skills:</strong><br>
+      - Time Management<br>
+      - Teamwork<br>
+      - Photo Editing<br>
+      - Microsoft Office (Word, Excel, PowerPoint)</p>
+
+      <h2>Education</h2>
+      <p><strong>College:</strong> BSIT, Pamantasan ng Lungsod ng San Pablo</p>
+      <p><strong>High School:</strong> Dagatan NHS (2017-2022)</p>
+
+      <h2>Experience</h2>
+      <p><strong>OJT:</strong> Book Inventory Assistant (2022)</p>
+    </div>
+
+    <div id="about" class="section">
+      <h2>About Me</h2>
+      <p>Hi! I'm Adrianne Mendoza, a BSIT student with a passion for web development. I love learning new skills and working on projects that challenge me to think creatively and solve problems. In my free time, I enjoy photography. I’m always open to new opportunities and collaborations—let’s connect and create something great together!</p>
+    </div>
+
+    <div id="contact" class="section">
+      <h2>Contact Me</h2>
+      <p><strong>Contact No.:</strong> 09679756550<br>
+         <strong>Email:</strong> mendozaadrianne09@gmail.com</p>
+      <p>
+        <a href="https://github.com/adrigth" target="_blank">GitHub</a> |
+        <a href="https://www.facebook.com/adrianne.mendozaaid.5" target="_blank">Facebook</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Adrianne L. Mendoza. All rights reserved.</p>
+  </div>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.nav a');
+
+      sections.forEach(section => section.style.display = 'none');
+      navLinks.forEach(link => link.classList.remove('active'));
+
+      const target = document.getElementById(id);
+      if (target) {
+        target.style.display = 'block';
+        const link = document.getElementById('link-' + id);
+        if (link) {
+          link.classList.add('active');
+        }
+      }
+    }
+
+    // Show default section on load
+    window.onload = function () {
+      showSection('about');
+    };
+  </script>
+
+</body>
+</html>
